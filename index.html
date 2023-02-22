@@ -15,15 +15,24 @@
             <h2 class="font-bold mb-2">Assignments</h2>
               
             <ul>
-                 <li v-for="assignment in assignments">{{assignment.name}} <input type="checkbox"> </li>
-                 <li v-for="assignment in assignments">{{assignment.name}} <input type="checkbox"> </li>
-                 <li v-for="assignment in assignments">{{assignment.name}} <input type="checkbox"> </li>
+                 <li v-for="assignment in assignments">
+                    <label>
+                        {{assignment.name}} 
+                        <input type="checkbox" v-model="assignment.complete"> 
+                    </label>
+
+                 </li>
             </ul>
+
+            <pre>
+                {{assignments}}
+            </pre>
 
         </section>
      </div>
 
     <script>
+
         // Vue.createApp({
         //     data() {
         //         return {
