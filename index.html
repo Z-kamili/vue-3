@@ -12,21 +12,22 @@
 
      <div id="app">
         <section>
-            <h2 class="font-bold mb-2">Assignments</h2>
+            
+            <h2 class="font-bold mb-2">In Progress</h2>
               
             <ul>
-                 <li v-for="assignment in assignments">
+                 <li v-for="assignment in assignments.filter(a => !a.complete)" :key="assignment.id">
                     <label>
                         {{assignment.name}} 
+
                         <input type="checkbox" v-model="assignment.complete"> 
                     </label>
-
                  </li>
-            </ul>
+            </ul> 
 
-            <pre>
+            <!-- <pre>
                 {{assignments}}
-            </pre>
+            </pre> -->
 
         </section>
      </div>
@@ -52,13 +53,14 @@
             data() {
                 return {
                     assignments : [
-                        {name:'Finish project',complete:false},
-                        {name:'Finish project',complete:false},
-                        {name:'Finish project',complete:false},
+                        {name:'Finish project',complete:false,id:1},
+                        {name:'Read chapter 4',complete:false,id:2},
+                        {name:'Turn in Homework',complete:false,id:3},
                     ]
                 }
             }
         }
+
        Vue.createApp(app).mount('#app');
     </script>
 </body>
